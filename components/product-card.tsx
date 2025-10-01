@@ -1,0 +1,46 @@
+import { Card } from "@/components/ui/card"
+
+interface ProductCardProps {
+  name: string
+  originalPrice: number
+  currentPrice: number
+  image: string
+  badge?: "sale" | "new"
+  discount?: number
+}
+
+export function ProductCard({ name, originalPrice, currentPrice, image, badge, discount }: ProductCardProps) {
+  const formatPrice = (price: number | undefined) => {
+    return price ? price.toLocaleString() : "0"
+  }
+
+  return (
+    <Card className="group cursor-pointer overflow-hidden border hover:shadow-lg transition-all duration-300">
+      <div className="relative aspect-square bg-muted">
+        {badge && (
+          <div
+            className={`absolute top-3 left-3 px-3 py-1 text-xs font-medium text-white z-10 ${
+              badge === "sale" ? "bg-accent" : "bg-success"
+            }`}
+          >
+            {badge === "sale" ? `${discount}% OFF` : "New"}
+          </div>
+        )}
+        <img
+          src={image || "/placeholder.svg"}
+          alt={name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <div className="p-4 space-y-2">
+        <h3 className="text-sm text-foreground line-clamp-2 min-h-[2.5rem]">{name}</h3>
+        <div className="flex items-center gap-2">
+          {originalPrice && currentPrice && originalPrice !== currentPrice && (
+            <span className="text-sm text-muted-foreground line-through">LKR {formatPrice(originalPrice)}</span>
+          )}
+          <span className="text-base font-semibold text-foreground">LKR {formatPrice(currentPrice)}</span>
+        </div>
+      </div>
+    </Card>
+  )
+}
