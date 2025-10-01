@@ -34,7 +34,7 @@ export function Header() {
                 <div className="w-10 h-10 bg-gradient-to-br from-accent to-accent/80 rounded-sm flex items-center justify-center">
                   <span className="text-white font-bold text-lg">R</span>
                 </div>
-                <span className="font-bold text-xl text-foreground">Rocell</span>
+                <span className="font-bold text-xl text-foreground">Classica Ceramic</span>
               </div>
             </a>
 
