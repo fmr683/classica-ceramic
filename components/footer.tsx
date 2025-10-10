@@ -15,7 +15,7 @@ export function Footer() {
           <div>
             <h3 className="font-serif text-2xl font-light mb-3">Classica Ceramic</h3>
             <address className="not-italic text-sm text-muted-foreground leading-relaxed">
-              {address}
+              No. 21/E, Narahenpitia Road, Nawala, Rajagiriya.
             </address>
 
             <div className="mt-3 space-y-1 text-sm">
