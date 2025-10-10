@@ -53,40 +53,40 @@ const topSavings = [
 const trendingProducts = [
   {
     id: 6,
-    name: "Mosaic -Glossy Glass (SFPM1)",
-    originalPrice: 3200,
-    currentPrice: 2780,
-    image: "/mixed-blue-mosaic-tiles.jpg",
+    name: "Basic Package",
+    originalPrice: 67000,
+    currentPrice: 57000,
+    image: "/new/set-1.jpg",
     badge: "sale" as const,
-    discount: 13,
+    discount: 12,
   },
   {
     id: 7,
-    name: "Mosaic -Glossy Glass (DXR82)",
-    originalPrice: 2980,
-    currentPrice: 2380,
-    image: "/deep-blue-mosaic-tiles.jpg",
+    name: "Standard Package",
+    originalPrice: 77000,
+    currentPrice: 67000,
+    image: "/new/set-2.jpg",
     badge: "sale" as const,
-    discount: 20,
+    discount: 12,
   },
-  {
-    id: 8,
-    name: "Mosaic -Glossy Glass (GX100)",
-    originalPrice: 2850,
-    currentPrice: 2380,
-    image: "/navy-blue-mosaic-tiles.jpg",
-    badge: "sale" as const,
-    discount: 16,
-  },
-  {
-    id: 9,
-    name: "Infinity 05 Wash Basin",
-    originalPrice: 35500,
-    currentPrice: 32237,
-    image: "/modern-white-pedestal-sink-wash-basin.jpg",
-    badge: "sale" as const,
-    discount: 9,
-  },
+  // {
+  //   id: 8,
+  //   name: "Mosaic -Glossy Glass (GX100)",
+  //   originalPrice: 2850,
+  //   currentPrice: 2380,
+  //   image: "/navy-blue-mosaic-tiles.jpg",
+  //   badge: "sale" as const,
+  //   discount: 16,
+  // },
+  // {
+  //   id: 9,
+  //   name: "Infinity 05 Wash Basin",
+  //   originalPrice: 35500,
+  //   currentPrice: 32237,
+  //   image: "/modern-white-pedestal-sink-wash-basin.jpg",
+  //   badge: "sale" as const,
+  //   discount: 9,
+  // },
 ]
 
 const recentlyViewed = [
@@ -133,22 +133,22 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <ProductCarousel
+      {/* <ProductCarousel
         title="TOP SAVINGS FOR YOU"
         subtitle="Discover top savings on Tiles, Bathwares, and Accessories to elevate your space."
         products={topSavings}
-      />
+      /> */}
       <ProductCarousel
-        title="TRENDING PRODUCTS"
+        title="TRENDING PACKAGES"
         subtitle="Trending Now, Don't Miss These Bestsellers."
         products={trendingProducts}
       />
-      <CategoryGrid />
+      {/* <CategoryGrid />
       <ProductCarousel
         title="RECENTLY VIEWED"
         subtitle="Keep the inspiration alive with recently seen picks."
         products={recentlyViewed}
-      />
+      /> */}
       <Footer />
     </main>
   )
