@@ -43,14 +43,14 @@ export function ProductCard({
 
       {/* --- Product Info --- */}
       <div className="p-4 space-y-2">
-        <h3 className="text-sm text-foreground line-clamp-2 min-h-[2.5rem]">{name}</h3>
+        <h3 className="text-2xl text-foreground line-clamp-2 min-h-[2.5rem]">{name}</h3>
         <div className="flex items-center gap-2">
           {originalPrice && currentPrice && originalPrice !== currentPrice && (
-            <span className="text-sm text-muted-foreground line-through">
+            <span className="text-xl text-muted-foreground line-through">
               LKR {formatPrice(originalPrice)}
             </span>
           )}
-          <span className="text-base font-semibold text-foreground">
+          <span className="text-xl font-semibold text-foreground">
             LKR {formatPrice(currentPrice)}
           </span>
         </div>
