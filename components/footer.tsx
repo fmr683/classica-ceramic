@@ -8,7 +8,7 @@ export function Footer() {
   const mapsLink = `https://www.google.com/maps/search/?api=1&query=${mapsQuery}`
 
   return (
-    <footer className="border-t border-border/40 bg-muted/20">
+    <footer  id="contact" className="border-t border-border/40 bg-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 lg:gap-12">
           {/* Brand & Address */}
@@ -103,18 +103,43 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-border/40 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-          <p>© {year} Classica Ceramic. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
-          </div>
-        </div>
+   {/* Bottom bar */}
+<div className="mt-10 pt-6 border-t border-border/40 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+  <p>© {year} Classica Ceramic. All rights reserved.</p>
+
+  <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6 text-center sm:text-left">
+    <p>
+      Website built & maintained by{" "}
+      <a
+        href="https://www.linkedin.com/in/fazlulrahmanmohideen/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline underline-offset-4"
+      >
+        Fazlul Rahman Mohideen
+      </a>
+    </p>
+    <p>
+      📞{" "}
+      <a href="tel:+94776277220" className="hover:text-foreground transition-colors">
+        077 627 7220
+      </a>
+    </p>
+  </div>
+
+  <div className="flex gap-6">
+    <a href="#" className="hover:text-foreground transition-colors">
+      Privacy Policy
+    </a>
+    <a href="#" className="hover:text-foreground transition-colors">
+      Terms of Service
+    </a>
+  </div>
+</div>
+
+        
       </div>
+      
     </footer>
   )
 }

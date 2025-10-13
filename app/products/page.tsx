@@ -7,6 +7,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { SlidersHorizontal } from "lucide-react"
+import { redirect } from "next/navigation"
 
 export const dynamic = 'force-dynamic';
 
@@ -131,6 +132,7 @@ const products = [
 ]
 
 export default function ProductsPage() {
+  redirect("/") // immediately sends the user to the homepage
   return (
     <main className="min-h-screen bg-background">
       <Header />
