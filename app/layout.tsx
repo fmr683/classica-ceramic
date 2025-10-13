@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next"
 import Script from "next/script"
 import { Suspense } from "react"
 import "./globals.css"
+import GA4RouteTracker from "@/components/ga4-route-tracker"
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -22,6 +23,8 @@ const SITE_URL = "https://www.classicaceramic.com/"
 const DEFAULT_TITLE = "Affordable & Premium Bathroom Sets in Sri Lanka | Classica Ceramic"
 const DEFAULT_DESC =
   "Shop affordable and premium bathroom sets in Sri Lanka. Explore bathware packages, wash basins, tiles, and accessories with islandwide delivery and trusted after-sales service."
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -94,8 +97,8 @@ export const metadata: Metadata = {
     initialScale: 1,
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: "/favicon/favicon.ico",
+    apple: "/favicon/apple-touch-icon.png",
   },
   category: "shopping",
   generator: "Next.js",
@@ -112,6 +115,32 @@ export default function RootLayout({
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
 
       <body className={`font-sans ${inter.variable} ${playfair.variable} antialiased`}>
+
+         {/* GA4 base script */}
+         {GA_ID ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = window.gtag || gtag;
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}', {
+                  anonymize_ip: true,
+                  page_path: window.location.pathname
+                });
+              `}
+            </Script>
+          </>
+        ) : null}
+
+        {/* Track client-side route changes */}
+        {GA_ID ? <GA4RouteTracker /> : null}
+            
         {/* Organization + WebSite Schema (sitewide) */}
         <Script id="ld-org" type="application/ld+json"
           dangerouslySetInnerHTML={{
